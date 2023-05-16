@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "name": "shafeeq",
+      "username": "shafeeq",
+      "phoneno": "9778063598",
+      "email": "shaas@gmail.com",
+      "password": "12345",
+      "cnfpassword": "12345",
+      "login": true,
+      "id": 1
+    },
+    {
+      "name": "shafeeq A",
+      "username": "ashafeeq05@gmail.com",
+      "phoneno": "9778063598",
+      "email": "shaas@gmail.com",
+      "password": "dfdsfgd",
+      "cnfpassword": "dsfds",
+      "login": false,
+      "id": 2
+    },
+    {
+      "name": "ramshad",
+      "username": "rammu",
+      "phoneno": "9778063598",
+      "email": "shaas@gmail.com",
+      "password": "asdfgg",
+      "cnfpassword": "sdfgh",
+      "login": false,
+      "id": 3
+    }
+  ],
+  "product": [
+    {
+      "name": "shafeeq",
+      "price": "200",
+      "img": null,
+      "id": 1
+    },
+    {
+      "name": "shafeeqqqq",
+      "price": "200",
+      "img": null,
+      "id": 2
+    }
+  ],
+  "cart": []
+}
