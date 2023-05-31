@@ -13,15 +13,21 @@ import profile from './assets/user.png'
 import logo from './assets/cart.png'
 import { Button, Container, Navbar, Nav,Image } from "react-bootstrap";
 import Addproduct from './component/subcomponnt/Addproduct';
+import { createContext } from 'react';
 
 
+export const Countcart = createContext()
 
-
-export const CookiContext = createContext()
 function App() {
-  const [cooki, setCooki] = useState('login')
- 
+  const [crtcount,setCart] = useState(0)
   const navigate = useNavigate()
+  var logout = 'Login'
+  if(localStorage.getItem('lgnbtn')){
+   logout = localStorage.getItem('lgnbtn')
+  }else{
+   logout = 'Login'
+  }
+ 
 
 //  const click = () => {
 //   if(localStorage.getItem('login')){
@@ -50,16 +56,18 @@ function App() {
                   Profile
                   <Image src={profile} alt="profile" height={20} width={20} />
                 </NavLink>
+                {/* <Countcart   */}
                 <NavLink to="/cart">Cart
                 <img src={logo} alt="cart" width={25} height={25} srcset="" />
+                {crtcount}
                 </NavLink>
-               
+                
                 <NavLink>
                   <Button  variant='outline-secondary'
                     onClick={()=>{
                       if(localStorage.getItem('login')){
                         localStorage.clear()
-                        setCooki('Login')
+                        
                         navigate('/')
                       }
                     }}
@@ -67,7 +75,7 @@ function App() {
                     className="logout"
                     >
                     <div className='login-btn'>
-                    <NavLink to="/login"> {cooki}</NavLink>
+                    <NavLink to="/login"> {logout}</NavLink>
                   </div>
                   </Button>
                   </NavLink>
@@ -77,7 +85,7 @@ function App() {
             </Navbar>
     
       {/* <Home /> */}
-    <CookiContext.Provider value={{cooki,setCooki}}>
+    
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/login' element={<Loginpage/>} />
@@ -87,8 +95,9 @@ function App() {
       <Route path='/profile' element={<Profile />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/addproduct' element={<Addproduct/>}/>
+      <Route path='/cart' element={<Cart/>} />
     </Routes>
-    </CookiContext.Provider>
+  
     </>
   )
 }

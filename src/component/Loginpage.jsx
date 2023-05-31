@@ -1,11 +1,11 @@
 import axios from "axios";
 import React,{ useContext }  from "react";
 import { Button, Form } from "react-bootstrap";
-import { CookiContext } from "../App";
+
 import {useNavigate} from 'react-router-dom';
 
 export default function Loginpage() {
-  const {cooki,setCooki} = useContext(CookiContext)
+  
   const navigate = useNavigate()
     function formSubmit(){
         event.preventDefault()
@@ -18,11 +18,13 @@ export default function Loginpage() {
         if(elem.name==formdata.name&&elem.password==formdata.password){
           console.log(elem.name);
           localStorage.setItem('login',elem.id)
-          setCooki('Logout')
+          localStorage.setItem('lgnbtn','Logout')
            navigate('/')
           // elem.login=true
           // console.log(elem);
           // axios.put(`http://localhost:3000/users/${elem.id}`,elem)
+        }else{
+          alert("please check your username and password")
         }
       })
     })

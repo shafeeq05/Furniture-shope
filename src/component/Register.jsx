@@ -10,7 +10,7 @@ export default function Register() {
         const frmjson = new FormData(event.target)
         const formdata= Object.fromEntries(frmjson.entries())
         console.log(formdata);
-        formdata.login=false
+        formdata.cart=[]
         axios.post('http://localhost:3000/users',formdata)
         .then((res)=>{console.log(res)
           navigate('/login')
